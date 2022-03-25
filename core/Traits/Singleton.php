@@ -14,13 +14,28 @@
  * POSSIBILITY OF SUCH DAMAGE.
 **/
 
-require_once('constants.php');
-require_once(ROOT . '/core/Http/Router.php');
-require_once(ROOT . '/core/Http/Request.php');
+namespace Core\Traits;
 
-use Core\Http\Router;
-use Core\Http\Request;
+/**
+ * Singletone Trait
+ * @package Core\Traits
+ * @version 1.0
+ */
+trait Singletone
+{
+    /** @var self Instance */
+    private static self $instance;
 
-Router::getInstance()->handle(Request::getInstance());
+    /**
+     * Get instance
+     * @return self
+     */
+    public static function getInstance(): self
+    {
+        if (!self::$instance) {
+            self::$instance = new self();
+        }
 
-exit('Hello World !');
+        return self::$instance;
+    }
+}

@@ -14,13 +14,5 @@
  * POSSIBILITY OF SUCH DAMAGE.
 **/
 
-require_once('constants.php');
-require_once(ROOT . '/core/Http/Router.php');
-require_once(ROOT . '/core/Http/Request.php');
-
-use Core\Http\Router;
-use Core\Http\Request;
-
-Router::getInstance()->handle(Request::getInstance());
-
-exit('Hello World !');
+return [
+];

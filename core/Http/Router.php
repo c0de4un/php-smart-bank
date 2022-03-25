@@ -14,13 +14,35 @@
  * POSSIBILITY OF SUCH DAMAGE.
 **/
 
-require_once('constants.php');
-require_once(ROOT . '/core/Http/Router.php');
-require_once(ROOT . '/core/Http/Request.php');
+namespace Core\Http;
 
-use Core\Http\Router;
-use Core\Http\Request;
+use Core\Traits\Singletone;
 
-Router::getInstance()->handle(Request::getInstance());
+/**
+ * Router Class
+ * Can be extended
+ * @package Core\Http
+ * @version 1.0
+ * @mixin Singletone
+ */
+class Router
+{
+    use Singletone;
 
-exit('Hello World !');
+    /**
+     * Private constructor
+     */
+    private function __construct()
+    {
+    }
+
+    /**
+     * Handle Http Request
+     *
+     * @param Request $request
+     * @return void
+     */
+    public function handle(Request $request): void // @TODO: Router::handle()
+    {
+    }
+}
