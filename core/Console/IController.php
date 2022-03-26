@@ -14,28 +14,24 @@
  * POSSIBILITY OF SUCH DAMAGE.
 **/
 
-namespace Core\Traits;
+namespace Core\Console;
 
 /**
- * Singletone Trait
- * @package Core\Traits
+ * IController Interface
+ * @package Core\Console
  * @version 1.0
  */
-trait Singletone
+interface IController
 {
-    /** @var self Instance */
-    private static ?self $instance = null;
-
     /**
-     * Get instance
-     * @return self
-     */
-    public static function getInstance(): self
-    {
-        if (!self::$instance) {
-            self::$instance = new static();
-        }
-
-        return self::$instance;
-    }
+     * Called to handle CLI Request
+     *
+     * @param array $args - arguments
+     * @example:
+     * [
+     *     "class" => "Users"
+     * ]
+     * @return void
+    */
+    public function handle(array $args): void;
 }

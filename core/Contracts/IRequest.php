@@ -14,28 +14,21 @@
  * POSSIBILITY OF SUCH DAMAGE.
 **/
 
-namespace Core\Traits;
+namespace Core\Contracts;
 
 /**
- * Singletone Trait
- * @package Core\Traits
+ * IRequest Interface
+ * @package Core\Contracts
  * @version 1.0
  */
-trait Singletone
+interface IRequest
 {
-    /** @var self Instance */
-    private static ?self $instance = null;
-
     /**
-     * Get instance
-     * @return self
+     * Get input value
+     *
+     * @param string                     $key - value key
+     * @param int|string|bool|array|null $default - default value
+     * @return int|string|bool|array|null
      */
-    public static function getInstance(): self
-    {
-        if (!self::$instance) {
-            self::$instance = new static();
-        }
-
-        return self::$instance;
-    }
+    public function get(string $key, $default = null);
 }

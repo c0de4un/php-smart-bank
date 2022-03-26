@@ -1,3 +1,3 @@
 <?php
 
-define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+define('ROOT', __DIR__);

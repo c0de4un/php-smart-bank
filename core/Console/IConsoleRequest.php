@@ -14,28 +14,29 @@
  * POSSIBILITY OF SUCH DAMAGE.
 **/
 
-namespace Core\Traits;
+namespace Core\Console;
+
+use Core\Contracts\IRequest;
 
 /**
- * Singletone Trait
- * @package Core\Traits
+ * IConsoleRequest Interface
+ *
+ * @package Core\Console
  * @version 1.0
  */
-trait Singletone
+interface IConsoleRequest extends IRequest
 {
-    /** @var self Instance */
-    private static ?self $instance = null;
+    /**
+     * Returns Console Controller name
+     *
+     * @return string
+    */
+    public function getController(): string;
 
     /**
-     * Get instance
-     * @return self
+     * Returns Controller method
+     *
+     * @return string
      */
-    public static function getInstance(): self
-    {
-        if (!self::$instance) {
-            self::$instance = new static();
-        }
-
-        return self::$instance;
-    }
+    public function getMethod(): string;
 }

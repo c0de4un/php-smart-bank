@@ -14,28 +14,22 @@
  * POSSIBILITY OF SUCH DAMAGE.
 **/
 
-namespace Core\Traits;
+namespace Core\Console;
+
+use Core\Traits\Singletone;
 
 /**
- * Singletone Trait
- * @package Core\Traits
+ * Kernel Class
+ * @package Core\Console
  * @version 1.0
  */
-trait Singletone
+class Kernel implements IKernel
 {
-    /** @var self Instance */
-    private static ?self $instance = null;
+    use Singletone;
 
-    /**
-     * Get instance
-     * @return self
-     */
-    public static function getInstance(): self
+    public function handle(Request $request): void
     {
-        if (!self::$instance) {
-            self::$instance = new static();
-        }
-
-        return self::$instance;
+        var_dump($request);
+        exit('OK');
     }
 }

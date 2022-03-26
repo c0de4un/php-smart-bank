@@ -14,28 +14,12 @@
  * POSSIBILITY OF SUCH DAMAGE.
 **/
 
-namespace Core\Traits;
+namespace Core\Http;
 
-/**
- * Singletone Trait
- * @package Core\Traits
- * @version 1.0
- */
-trait Singletone
+require_once(ROOT . '/core/Contracts/IRequest.php');
+
+use Core\Contracts\IRequest;
+
+interface IHttpRequest extends IRequest
 {
-    /** @var self Instance */
-    private static ?self $instance = null;
-
-    /**
-     * Get instance
-     * @return self
-     */
-    public static function getInstance(): self
-    {
-        if (!self::$instance) {
-            self::$instance = new static();
-        }
-
-        return self::$instance;
-    }
 }

@@ -14,28 +14,16 @@
  * POSSIBILITY OF SUCH DAMAGE.
 **/
 
-namespace Core\Traits;
+require_once(ROOT . '../constants.php');
 
-/**
- * Singletone Trait
- * @package Core\Traits
- * @version 1.0
- */
-trait Singletone
-{
-    /** @var self Instance */
-    private static ?self $instance = null;
+// Contracts
+require_once(ROOT . '../core/Contracts/IRequest.php');
+require_once(ROOT . '../core/Console/IConsoleRequest.php');
+require_once(ROOT . '../core/Console/IKernel.php');
 
-    /**
-     * Get instance
-     * @return self
-     */
-    public static function getInstance(): self
-    {
-        if (!self::$instance) {
-            self::$instance = new static();
-        }
+// Traits
+require_once(ROOT . '../core/Traits/Singleton.php');
 
-        return self::$instance;
-    }
-}
+// Classes
+require_once(ROOT . '../core/Console/Request.php');
+require_once(ROOT . '../core/Console/Kernel.php');

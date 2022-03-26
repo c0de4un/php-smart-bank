@@ -14,9 +14,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
 **/
 
-require_once('constants.php');
-require_once(ROOT . '/core/Http/Router.php');
-require_once(ROOT . '/core/Http/Request.php');
+require_once('./constants.php');
+require_once(ROOT . '/bootstrap/http.php');
 
 use Core\Http\Router;
 use Core\Http\Request;

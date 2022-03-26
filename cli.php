@@ -14,28 +14,12 @@
  * POSSIBILITY OF SUCH DAMAGE.
 **/
 
-namespace Core\Traits;
+require_once('constants.php');
+require_once(ROOT . '/bootstrap/console.php');
 
-/**
- * Singletone Trait
- * @package Core\Traits
- * @version 1.0
- */
-trait Singletone
-{
-    /** @var self Instance */
-    private static ?self $instance = null;
+use Core\Console\Request;
+use Core\Console\Kernel;
 
-    /**
-     * Get instance
-     * @return self
-     */
-    public static function getInstance(): self
-    {
-        if (!self::$instance) {
-            self::$instance = new static();
-        }
+Kernel::getInstance()->handle(Request::getInstance());
 
-        return self::$instance;
-    }
-}
+exit('CLI');
